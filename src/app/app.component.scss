@@ -31,7 +31,7 @@
     display: flex;
     float: left;
     gap: 1em;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     margin: auto;
 }
@@ -41,9 +41,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0em 2em;
+    padding: 0em 1em;
     width: auto;
-    height: 2em;
+    height: 1.7em;
     border-radius: 20px;
     border: none;
     background-color: rgb(0, 166, 149);
@@ -51,11 +51,10 @@
     font-size: 1.3em;
     font-weight: bold;
     letter-spacing: 0.3px;
-    left: 5em;
 }
 .precio-total-nav-bar{
 color: rgb(255, 255, 255);
-font-size: 1.5em;
+font-size: 1.1em;
 list-style: none;
 background-color: rgba(0, 195, 143, 0.555);
 padding: 0.1em 1em;
@@ -68,7 +67,14 @@ border-radius: 20px;
     align-items: center;
     gap: 1em;
     padding: 0em 2em;
-   
+}
+
+.upload-image{
+    height: 4em;
+    width: 4em;
+}
+.crear-producto-input-file{
+    visibility: hidden;
 }
 
 .crear-producto-input{
@@ -82,99 +88,98 @@ border-radius: 20px;
 background-color: rgb(68, 0, 255);
 
 }
-/*-------------------------------------- CARD CONFIG ---------------------------------------------*/
 
-/*----------- Body ----------*/
-.card-body{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 17em;
-    height: 22em;
-    background-color: rgb(229, 229, 231);
-    border-radius: 20px;
-    box-shadow: 0px 1px 10px 1px  rgba(0, 0, 0, 0.478);
+@media only screen and (max-width: 1150px) {
+    .display-section{
+        max-width: 100%;
+        padding-top: 50em;
+    }
+    .nav{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 100%;
+        max-height: auto;
+        padding: 1em 0em;
+    }
+    .list-items-nav-bar{
+        display: flex;
+        flex-direction: column;
+    }
+    .crear-producto{
+        display: flex;
+        flex-direction: column;
+    }
+    .crear-producto-input{
+        width: 80%;
+        margin: auto;
+        height: 2em;
+        font-size: 1.5em;
+        border-radius: 50px;
+    }
+    .btn-nav {
+        font-size: 2.1em;
+        width: 14em;
+        border-radius: 50px;
+    }
+    .precio-total-nav-bar{
+        font-size: 2.1em;
+        border-radius: 50px;
+    }
+    .display-section{
+        gap: 8em;
+    }
+    .card-body{
+        transform: scale(1.2);
+    }
 }
 
-.btn-delete{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-width: 1.5em;
-    min-height: 1.5em;
-    max-width: 1.5em;
-    max-height: 1.5em;
-    background-color: rgba(213, 0, 0, 0.579);
-    border: none;
-    border-radius: 20px;
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    left: 1em;
-    top: 1em;
-}
-/*----------- Header ----------*/
-.card-header{
-    width: 17em;
-    height: 17em;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 20px;
+
+
+@media only screen and (max-width: 700px) {
+    .display-section{
+        max-width: 100%;
+        padding-top: 150%;
+    }
+    .nav{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 100%;
+        max-height: auto;
+        padding: 1em 0em;
+    }
+    .list-items-nav-bar{
+        display: flex;
+        flex-direction: column;
+    }
+    .crear-producto{
+        display: flex;
+        flex-direction: column;
+    }
+    .crear-producto-input{
+        width: 80%;
+        margin: auto;
+        height: 1em;
+        font-size: 1.5em;
+        border-radius: 50px;
+    }
+    .btn-nav {
+        font-size: 1.3em;
+        width: 14em;
+        border-radius: 50px;
+    }
+    .precio-total-nav-bar{
+        font-size: 1.4em;
+        border-radius: 50px;
+    }
+    .display-section{
+        gap: 8em;
+        
+    }
+    .card-body{
+        transform: scale(1.2);
+    }
 }
 
-/*----------- Footer ----------*/
-.card-footer{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    padding: 1em;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-.price{
-    color: green;
-}
-.medidas-del-producto{
-    color: rgb(39, 15, 255);
-}
-/*--- Boton ---*/
-.card-agregar{
-    position: relative;
-    display: flex;
-    float: left;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    height: 1.5em;
-    background-color: rgba(15, 139, 247, 0.256);
-    border-radius: 15px;
-    
-}
-.btn{
-    position: absolute;
-    min-width: 1.5em;
-    height: 1.5em;
-    border: none;
-    border-radius: 15px;
-    background-color: rgb(18, 133, 209);
-    color: white;
-    font-size: 1em;
-    font-weight: bold;
-}
-.start{
-top: 0;
-left: 0;
-}
-.end{
-    top: 0;
-    right: 0;
-}
-.precio-total{
-    color: rgb(0, 83, 0);
-}
-.unidades{
-    color: rgb(0, 64, 255);
-}
+

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+
 class Producto {
   img: string;
   nombre: string;
@@ -83,7 +84,7 @@ export class AppComponent implements OnInit {
       const productosJSON = localStorage.getItem('Productos');
       if (productosJSON) {
         const productosArray = JSON.parse(productosJSON);
-        this.Productos = productosArray.map((producto: any) => new Producto(producto.img, producto.nombre, producto.medidas, producto.precio, producto.id));
+        this.Productos = productosArray.map((producto: any) => new Producto(producto.img, producto.nombre, producto.medidas, producto.precio,  producto.id));
         this.actualizarPrecioTotalFinal(); // Asegúrate de actualizar el total después de cargar los productos
       } else {
         console.error('No hay productos guardados en localStorage.');
@@ -95,6 +96,13 @@ export class AppComponent implements OnInit {
 
   actualizarPrecioTotalFinal() {
     this.precioTotalFinal = this.Productos.reduce((total, item) => total + item.precioTotal, 0);
+  }
+
+  resetForm() {
+    (document.getElementById('imagen') as HTMLInputElement).value = '';
+    (document.getElementById('nombre') as HTMLInputElement).value = '';
+    (document.getElementById('medicion') as HTMLInputElement).value = '';
+    (document.getElementById('precio') as HTMLInputElement).value = '';
   }
 
   eliminarProducto(id: number) {
@@ -123,6 +131,8 @@ export class AppComponent implements OnInit {
       const producto = new Producto(imagen, nombre, medicion, parseFloat(precio), productoId);
       this.Productos.push(producto);
       this.guardarProductosEnLocalStorage();
+      this.actualizarPrecioTotalFinal(); // Asegúrate de actualizar el precio total final después de agregar un nuevo producto
+      this.resetForm();
     } else {
       console.error('Por favor, complete todos los campos.');
     }
