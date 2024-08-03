@@ -11,9 +11,43 @@ html{
     box-sizing: border-box;
     background-color: rgb(224, 224, 231);
 }
-/*-------------------------------------- CARD CONFIG ---------------------------------------------*/
 
-/*----------- Body ----------*/
+/*
+*-----------------------------------------------------------------------------------
+    * Funcion : Repositorio
+    ? Repositorio de clases genericas para reducir codigo
+
+*----------------------------------------------------------------------------------*/
+
+.confi-imagen{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
+/*
+*-----------------------------------------------------------------------------------
+    * Funcion : Contenedor
+    ? Es el cuerpo de los Productos que contiene toda la informacion 
+
+*----------------------------------------------------------------------------------*/
+
+
+
+/* --------------------------------------------------
+* Contenedor Padre de la informacion de los Productos
+----------------------------------------------------*/
+
 .card-body{
     position: relative;
     display: flex;
@@ -25,12 +59,13 @@ html{
     box-shadow: 0px 1px 10px 1px  rgba(0, 0, 0, 0.478);
 }
 
+/* --------------------------
+* Boton de eliminar Producto
+----------------------------*/
+
 .btn-delete{
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    @extend .flex-center;
     min-width: 1.5em;
     min-height: 1.5em;
     max-width: 1.5em;
@@ -44,17 +79,22 @@ html{
     left: 1em;
     top: 1em;
 }
-/*----------- Header ----------*/
+
+/* -----------------------------------
+* Contenedor de la imagen del Producto
+-------------------------------------*/
+
 .card-header{
+    @extend .confi-imagen;
     width: 17em;
     height: 17em;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     border-radius: 20px;
 }
 
-/*----------- Footer ----------*/
+/* ------------------------------------
+* Contenedor principal de la informacion 
+--------------------------------------*/
+
 .card-footer{
     display: flex;
     flex-direction: column;
@@ -63,25 +103,45 @@ html{
     font-size: 1.2em;
     font-weight: bold;
 }
+
+/* --------------------
+* Precio del Producto
+---------------------*/
+
 .price{
     color: green;
 }
+
+/* --------------------
+* Unidad de medida del Producto
+---------------------*/
+
 .medidas-del-producto{
     color: rgb(39, 15, 255);
 }
-/*--- Boton ---*/
+
+/* 
+*----------------------------------------------------------------------------------------------------------------
+
+    * Funcion : Contenedor sistema de agregar Productos
+    ? Contiene tanto el indicador de suma, resta y valor total del Producto
+
+*---------------------------------------------------------------------------------------------------------------*/
+
 .card-agregar{
     position: relative;
-    display: flex;
-    float: left;
-    justify-content: center;
-    align-items: center;
+    @extend .flex-center;
+    float: left; 
     gap: 1em;
     height: 1.5em;
     background-color: rgba(15, 139, 247, 0.256);
     border-radius: 15px;
-    
 }
+
+/* --------------------------------------------
+* Boton de Sumar / Restar unidades del Producto
+----------------------------------------------*/
+
 .btn{
     position: absolute;
     min-width: 1.5em;
@@ -93,25 +153,33 @@ html{
     font-size: 1em;
     font-weight: bold;
 }
+
+/* --------------------------------------------------------------
+* Configuracion de posicionamiento de los botones Sumar / Restar
+---------------------------------------------------------------*/
+
 .start{
-top: 0;
-left: 0;
+    top: 0;
+    left: 0;
 }
+
 .end{
     top: 0;
     right: 0;
 }
+
+/* ----------------------------------------------------------------------------
+* Precio total del Producto ( unidades * precio de cada producto por separado)
+-----------------------------------------------------------------------------*/
+
 .precio-total{
     color: rgb(0, 83, 0);
 }
+
+/* ---------------------
+* Unidades del producto
+----------------------*/
+
 .unidades{
     color: rgb(0, 64, 255);
-}
-
-@media only screen and (max-width: 1024px) {
-html{
-    overflow-x: hidden;
-
-}
-
 }

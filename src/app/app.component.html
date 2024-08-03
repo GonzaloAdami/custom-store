@@ -1,29 +1,80 @@
+<!--  
+    * Elemento: Nav bar
+        Descripcion: Mostrar precio final y contenedor de formulario de creacion de producto
+        #Position: fixed;
+-->
 <nav class="nav">
+<!-- 
+    * Elemento: Ul
+        Class: list-items-nav-bar
+        Descripcion: Contener tanto el precio total como un boton que actualiza su valor
+-->
   <ul class="list-items-nav-bar">
+    <!-- Boton actualizar-->
     <button class="btn-nav" (click)="this.actualizarPrecioTotalFinal()"> Finalizar compra </button>
+    <!-- Precio total-->
     <li class="precio-total-nav-bar">${{this.precioTotalFinal}}</li>
   </ul>
+
+  <!--  
+    *Elemento: ul
+      Class: crear-producto
+      Descripcion: Formulario de creacion de los productos que se almacenan en el array productos
+  -->
   <ul class="crear-producto">     
-    <input class="crear-producto-input" type="text" placeholder="imagen" id="imagen">
-    <input class="crear-producto-input" type="text" placeholder="nombre" id="nombre">
-    <input class="crear-producto-input" type="text" placeholder="medicion" id="medicion">
-    <input class="crear-producto-input" type="number" placeholder="precio" id="precio">
+
+    <!-- Formulario -->
+    <input class="crear-producto-input" type="text"   placeholder="imagen"   id="imagen">
+    <input class="crear-producto-input" type="text"   placeholder="nombre"   id="nombre">
+    <input class="crear-producto-input" type="text"   placeholder="medicion" id="medicion">
+    <input class="crear-producto-input" type="number" placeholder="precio"   id="precio">
+
+    <!-- Boton de publicacion -->
     <button class="crear-producto-btn" (click)="crearProducto()"> Crear</button>
+
   </ul>
 </nav>
+
+
+<!--  
+      *Elemento: section
+          Class: display-section
+          Descripcion: Contenedor de todas los productos
+          Style: display grid / auto-fill minmax 19em 10em / row-gap 3em / padding  10em 3em
+-->
 <section class="display-section" id="section">
+
+  <!--  
+      *Elemento: article
+          Class: card-body
+          Descripcion:El producto esta conformado por el header y footer, header imagen footer informacion; se repite
+                      la cantidad de Productos equivalente a los productos existente en el array prductos que esta
+                      asociado al LocalStorage
+  -->
   <article class="card-body" *ngFor="let producto of Productos">
+
+    <!--  Header -->
     <header class="card-header" [ngStyle]="{'background-image': 'url(' + producto.img + ')'}"></header>
+
+    <!--  Footer -->
     <footer class="card-footer">
-      <p class="title">{{ producto.nombre }} <span class="medidas-del-producto"> ({{producto.medidas}})</span><br>
+
+      <!-- Informacion del producto -->
+      <p class="title">{{ producto.nombre }} 
+        <span class="medidas-del-producto"> ({{producto.medidas}})</span><br>
         <span class="price">{{ producto.precio | currency }}</span>
       </p>
 
+      <!-- Agregar productos a la lista -->
       <div class="card-agregar">
         <button class="agregar btn start" (click)="producto.restarCantidad()">-</button><p class="precio-total">${{producto.precioTotal}} <span class="unidades">({{producto.cantidad}}u)</span></p><button class="restar btn end" (click)="producto.sumarCantidad()">+</button>
       </div>
+
     </footer>
+
+    <!-- Eliminar producto  -->
     <button class="btn-delete" (click)="eliminarProducto(producto.id)">x</button>
+
   </article>
   
 </section>
