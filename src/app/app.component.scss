@@ -5,13 +5,13 @@
 
 *----------------------------------------------------------------------------------*/
 
-.confi-imagen{
+.confi-imagen {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.flex-center{
+.flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,11 +27,11 @@
 
 *-----------------------------------------------------------------------------------------------------------------*/
 
-.display-section{
+.display-section {
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(19em , 10em));
+    grid-template-columns: repeat(auto-fill, minmax(19em, 10em));
     row-gap: 3em;
     padding: 10em 3em;
     width: 100vw;
@@ -46,7 +46,7 @@
 
 *-----------------------------------------------------------------------------------------------------------------*/
 
-.nav{
+.nav {
     position: fixed;
     display: flex;
     float: left;
@@ -66,43 +66,22 @@
 
 *-----------------------------------------------------------------------------------------------------------------*/
 
-.list-items-nav-bar{
-    position: relative;
-    @extend .flex-center;
-    float: left;
-    gap: 1em;  
-    margin: auto;
-}
 
-/* ----------------------------
-* Boton para actializar precio 
-------------------------------*/
-
-.btn-nav{
-    @extend .flex-center;
-    padding: 0em 1em;
-    width: auto;
-    height: 1.7em;
-    border-radius: 20px;
-    border: none;
-    background-color: rgb(0, 166, 149);
-    color: white;
-    font-size: 1.3em;
-    font-weight: bold;
-    letter-spacing: 0.3px;
-}
 
 /* ----------------------------------------------------------
 * Resultado de la suma total de todos los productos comprados
 -----------------------------------------------------------*/
 
-.precio-total-nav-bar{
-color: rgb(255, 255, 255);
-font-size: 1.1em;
-list-style: none;
-background-color: rgba(0, 195, 143, 0.555);
-padding: 0.1em 1em;
-border-radius: 20px;
+.precio-total-nav-bar {
+    @extend .flex-center;
+    color: rgb(255, 255, 255);
+    font-size: 1.6em;
+    height: 1.1em;
+    width: auto;
+    list-style: none;
+    background-color: rgba(0, 195, 143, 0.555);
+    padding: 0.1em 1em;
+    border-radius: 20px;
 }
 
 /* 
@@ -113,9 +92,25 @@ border-radius: 20px;
 
 *-------------------------------------------------------------------------------------------------------------*/
 
-.crear-producto{
+.contenedor-formulario{
     @extend .flex-center;
-    gap: 1em;
+    width: 100%;
+}
+
+/* 
+*-------------------------------------------------------------------------------------------------------------
+
+    * Funcion: Cotenedor
+    ? Es el contenedor del formulario para crear productos
+
+*-------------------------------------------------------------------------------------------------------------*/
+
+.crear-producto {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 2em;
     padding: 0em 2em;
 }
 
@@ -123,7 +118,7 @@ border-radius: 20px;
 * Icono para subir archivos 
 -------------------------*/
 
-.upload-image{
+.upload-image {
     height: 4em;
     width: 4em;
 }
@@ -132,7 +127,7 @@ border-radius: 20px;
 * Input file (Invisible)
 ------------------------*/
 
-.crear-producto-input-file{
+.crear-producto-input-file {
     visibility: hidden;
 }
 
@@ -140,21 +135,39 @@ border-radius: 20px;
 * Input tipo texto del formulario
 -------------------------------*/
 
-.crear-producto-input{
+.crear-producto-input {
     border-radius: 20px;
     border: none;
     outline: none;
     padding: 0.5em 1em;
+    height: 1em;
+    width: 12em;
+    font-size: 1.1em
 }
 
 /* -----------------------------------------------
 *Extencion de boton .btn-nav para cambiar de color
 ------------------------------------------------*/
 
-.crear-producto-btn{
-@extend .btn-nav;
-background-color: rgb(68, 0, 255);
+.crear-producto-btn {
+    @extend .flex-center;
+    padding: 0em 1em;
+    width: 7em;
+    height: 1.5em;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 1.7em;
+    font-weight: bold;
+    background-color: rgb(0, 158, 129);
+}
 
+.crear-producto-btn:hover {
+    transform: scale(1.05);
+}
+
+.crear-producto-btn:active {
+    transform: scale(1);
 }
 
 /* 
@@ -167,20 +180,20 @@ background-color: rgb(68, 0, 255);
 
 @media only screen and (max-width: 1150px) {
 
-/* -----------------------------------------------
+    /* -----------------------------------------------
 * Aumento de padding top
 ------------------------------------------------*/
 
-    .display-section{
+    .display-section {
         max-width: 100%;
         padding-top: 50em;
     }
 
-/* --------------------------------------------------------
+    /* --------------------------------------------------------
 * Reposicionamiento de los elementos en forma de columna
 --------------------------------------------------------*/
 
-    .nav{
+    .nav {
         display: flex;
         flex-direction: column;
         gap: 1em;
@@ -189,28 +202,33 @@ background-color: rgb(68, 0, 255);
         padding: 1em 0em;
     }
 
-/* --------------------------------------------------------
+    /* --------------------------------------------------------
 * Reposicionamiento de los elementos en forma de columna
 --------------------------------------------------------*/
 
-    .list-items-nav-bar, .crear-producto{
+    .list-items-nav-bar,
+    .crear-producto {
         display: flex;
         flex-direction: column;
     }
 
-/* -------------------------------------------------------------------------------------
+    /* -------------------------------------------------------------------------------------
 * Aumento de tamaño para los inputs, aumento del font size y aumento del border radius
 --------------------------------------------------------------------------------------*/
 
-    .crear-producto-input{
+    .crear-producto-input {
         width: 80%;
         margin: auto;
         height: 2em;
         font-size: 1.5em;
         border-radius: 50px;
+        background-color: aliceblue;
     }
 
-/* ------------------------------------------------------------------------------------------------
+
+
+
+    /* ------------------------------------------------------------------------------------------------
 * Aumento de tamaño en boton de actialzar precio, aumento del font size y aumento del border radius
 --------------------------------------------------------------------------------------------------*/
 
@@ -220,28 +238,28 @@ background-color: rgb(68, 0, 255);
         border-radius: 50px;
     }
 
-/* --------------------------------------------------------
+    /* --------------------------------------------------------
 * Aumento del font size y del border radius  del precio total
 --------------------------------------------------------*/
 
-    .precio-total-nav-bar{
+    .precio-total-nav-bar {
         font-size: 2.1em;
         border-radius: 50px;
     }
 
-/* -------------------------------------------------------------------
+    /* -------------------------------------------------------------------
 * Aumento de la separacion entre los elementos del section (Productos)
 ---------------------------------------------------------------------*/
 
-    .display-section{
+    .display-section {
         gap: 8em;
     }
 
-/* --------------------------------------------------------
+    /* --------------------------------------------------------
 * Aumento del tamaño de los Productos
 --------------------------------------------------------*/
 
-    .card-body{
+    .card-body {
         transform: scale(1.2);
     }
 
@@ -257,31 +275,30 @@ background-color: rgb(68, 0, 255);
 
 @media only screen and (max-width: 700px) {
 
-/* --------------------------------------------------------
+    /* --------------------------------------------------------
 * Aumento de la separacion entre los Productos y el top
 --------------------------------------------------------*/
 
-    .display-section{
+    .display-section {
         max-width: 100%;
         padding-top: 150%;
     }
 
-/* --------------------------------------------------------
+    /* --------------------------------------------------------
 * Disminucion del tamaño del font size
 --------------------------------------------------------*/
 
-    .btn-nav , .precio-total-nav-bar {
+    .btn-nav,
+    .precio-total-nav-bar {
         font-size: 1.3em;
     }
 
-/* --------------------------------------------------------
+    /* --------------------------------------------------------
 * Disminucion del tamaño del font size
 --------------------------------------------------------*/
 
-    .crear-producto-input{
+    .crear-producto-input {
         height: 0.5em;
     }
 
 }
-
-
