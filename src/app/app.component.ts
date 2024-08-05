@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Producto } from './producto/class.producto';
-import { SistemaService } from './sistema/sistema.service';
+import { SistemaService } from './sistema/SistemaService';
 import { LocalStorageService } from './localStorage/local-storage.service';
 import { BDService } from './lista/bd.service';
 

@@ -116,9 +116,10 @@ export class SistemaService {
 
   }
 
-  obtenerPrecioTotalLista(): number {
-    return this.BD.ListaDeProductos.reduce((total, producto) => {
-      return total + producto.getPrecioTotal();
-    }, 0);
-  }
+ obtenerPrecioTotalLista(): number {
+  return this.BD.ListaDeProductos.reduce((total: number, producto: Producto) => {
+    return total + producto.getPrecioTotal(); // Use producto.getPrecioTotal() for price
+  }, 0);
+}
+
 }

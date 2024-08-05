@@ -76,7 +76,7 @@
     @extend .flex-center;
     color: rgb(255, 255, 255);
     font-size: 1.6em;
-    height: 1.1em;
+    height: 1.2em;
     width: auto;
     list-style: none;
     background-color: rgba(0, 195, 143, 0.555);
@@ -141,7 +141,7 @@
     outline: none;
     padding: 0.5em 1em;
     height: 1em;
-    width: 12em;
+    width: 8em;
     font-size: 1.1em
 }
 
@@ -152,8 +152,8 @@
 .crear-producto-btn {
     @extend .flex-center;
     padding: 0em 1em;
-    width: 7em;
-    height: 1.5em;
+    width: 5em;
+    height: 1.3em;
     border-radius: 20px;
     border: none;
     color: white;
