@@ -3,16 +3,13 @@
         Descripcion: Mostrar precio final y contenedor de formulario de creacion de producto
         #Position: fixed;
 -->
-<nav class="nav">
+<nav class="nav" [ngClass]="{'scrolled': isScrolled}">
 <!-- 
     * Elemento: Ul
         Class: list-items-nav-bar
         Descripcion: Contener tanto el precio total como un boton que actualiza su valor
 -->
-  <ul class="list-items-nav-bar">
-    <!-- Precio total-->
-    
-  </ul>
+ 
 
   <!--  
     *Elemento: ul
@@ -20,16 +17,16 @@
       Descripcion: Formulario de creacion de los productos que se almacenan en el array productos
   -->
   <ul class="contenedor-formulario">
-    <form action="" class="crear-producto" (submit)="agregarNuevoProducto($event)">
-      <li class="precio-total-nav-bar">${{Sistema.obtenerPrecioTotalLista()}}</li>
+    <form action="" class="crear-producto" (submit)="agregarNuevoProducto($event)" >
+      <li class="precio-total-nav-bar" [ngClass]="{'scrolled': isScrolled}">${{Sistema.obtenerPrecioTotalLista()}}</li>
       <!-- Formulario -->
-      <input class="crear-producto-input" type="text" placeholder="imagen" id="imagen" required>
-      <input class="crear-producto-input" type="text" placeholder="nombre" id="nombre" required>
-      <input class="crear-producto-input" type="text" placeholder="medicion" id="medicion" required>
-      <input class="crear-producto-input" type="number" placeholder="precio" id="precio" required>
-  
-      <!-- Botón de publicación -->
-      <button type="submit" class="crear-producto-btn">Crear</button>
+      <div class="crear-producto-container" [ngClass]="{'scrolled': isScrolled}" id="container">
+        <input class="crear-producto-input" type="text" placeholder="imagen" id="imagen" required>
+        <input class="crear-producto-input" type="text" placeholder="nombre" id="nombre" required>
+        <input class="crear-producto-input" type="text" placeholder="medicion" id="medicion" required>
+        <input class="crear-producto-input" type="number" placeholder="precio" id="precio" required>
+        <button type="submit" class="crear-producto-btn">Crear</button>
+      </div>
     </form>
   </ul>
   
@@ -43,38 +40,45 @@
           Style: display grid / auto-fill minmax 19em 10em / row-gap 3em / padding  10em 3em
 -->
 <section class="display-section" id="section">
+  <main class="box-cards">
+    
+    <!--  
+        *Elemento: article
+            Class: card-body
+            Descripcion:El producto esta conformado por el header y footer, header imagen footer informacion; se repite
+                        la cantidad de Productos equivalente a los productos existente en el array prductos que esta
+                        asociado al LocalStorage
+    -->
+    <article class="card-body" *ngFor="let producto of this.BD.ListaDeProductos">
 
-  <!--  
-      *Elemento: article
-          Class: card-body
-          Descripcion:El producto esta conformado por el header y footer, header imagen footer informacion; se repite
-                      la cantidad de Productos equivalente a los productos existente en el array prductos que esta
-                      asociado al LocalStorage
-  -->
-  <article class="card-body" *ngFor="let producto of this.BD.ListaDeProductos">
+      <!--  Header -->
+      <header class="card-header" [ngStyle]="{'background-image': 'url(' + producto.imagen + ')'}"></header>
 
-    <!--  Header -->
-    <header class="card-header" [ngStyle]="{'background-image': 'url(' + producto.imagen + ')'}"></header>
+      <!--  Footer -->
+      <footer class="card-footer">
 
-    <!--  Footer -->
-    <footer class="card-footer">
+        <!-- Informacion del producto -->
+         <div class="info">
+          <p class="title">{{ producto.nombre }} 
+            <span class="medidas-del-producto"> ({{producto.medicion}})</span><br>
+            <span class="price">{{ producto.precio | currency }}</span>
+          </p>
 
-      <!-- Informacion del producto -->
-      <p class="title">{{ producto.nombre }} 
-        <span class="medidas-del-producto"> ({{producto.medicion}})</span><br>
-        <span class="price">{{ producto.precio | currency }}</span>
-      </p>
+          <div class="card-agregar">
+            <button class="agregar btn start" (click)="this.producto.restarUnidades()">-</button><p class="precio-total">${{producto.getPrecioTotal()}} <span class="unidades">({{producto.unidades}}u)</span></p><button class="restar btn end"  (click)="this.producto.sumarUnidades()">+</button>
+          </div>
+         </div>
+       
 
-      <!-- Agregar productos a la lista -->
-      <div class="card-agregar">
-        <button class="agregar btn start" (click)="this.producto.restarUnidades()">-</button><p class="precio-total">${{producto.getPrecioTotal()}} <span class="unidades">({{producto.unidades}}u)</span></p><button class="restar btn end"  (click)="this.producto.sumarUnidades()">+</button>
-      </div>
+        <!-- Agregar productos a la lista -->
+        
 
-    </footer>
+      </footer>
 
-    <!-- Eliminar producto  -->
-    <button class="btn-delete" (click)="this.Sistema.eliminarProducto(producto.id)">x</button>
+      <!-- Eliminar producto  -->
+      <button class="btn-delete" (click)="this.Sistema.eliminarProducto(producto.id)">x</button>
 
-  </article>
+    </article>
+  </main>
   
 </section>

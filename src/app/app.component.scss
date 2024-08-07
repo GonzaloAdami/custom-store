@@ -1,3 +1,7 @@
+$nav: #003554;
+$btn: #006494;
+
+
 /*
 *-----------------------------------------------------------------------------------
     * Funcion : Repositorio
@@ -28,14 +32,21 @@
 *-----------------------------------------------------------------------------------------------------------------*/
 
 .display-section {
+    display: flex;
+    justify-content: center;   
+    width: 100vw; 
+    height: auto;
+    
+}
+
+.box-cards {
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(19em, 10em));
+    grid-template-columns: repeat(auto-fill, minmax(21em, 30vw));
+    width: 90vw; 
     row-gap: 3em;
-    padding: 10em 3em;
-    width: 100vw;
-    height: auto;
+    margin: 10em auto;
 }
 
 /* 
@@ -51,10 +62,14 @@
     display: flex;
     float: left;
     width: 100vw;
-    min-height: 4em;
-    background-color: rgb(2, 83, 170);
+    height: auto;
+    background-color: $nav;
     border-radius: 0px 0px 5px 5px;
     z-index: 1000;
+    transition: height 0.3s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    min-height: 4em
 
 }
 
@@ -79,9 +94,10 @@
     height: 1.2em;
     width: auto;
     list-style: none;
-    background-color: rgba(0, 195, 143, 0.555);
+    background-color: $btn;
     padding: 0.1em 1em;
     border-radius: 20px;
+    transition: transform 0.3s ease-in-out; 
 }
 
 /* 
@@ -93,8 +109,13 @@
 *-------------------------------------------------------------------------------------------------------------*/
 
 .contenedor-formulario{
-    @extend .flex-center;
+    display: flex;
+    float: left;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    
+   
 }
 
 /* 
@@ -112,6 +133,14 @@
     align-items: center;
     gap: 2em;
     padding: 0em 2em;
+}
+
+.crear-producto-container{
+    display: flex;
+    float: left;
+    gap: 1.5em;
+    min-width: 70vw;
+    height: auto;
 }
 
 /* ------------------------
@@ -142,7 +171,8 @@
     padding: 0.5em 1em;
     height: 1em;
     width: 8em;
-    font-size: 1.1em
+    font-size: 1.1em;
+    display: block
 }
 
 /* -----------------------------------------------
@@ -159,7 +189,7 @@
     color: white;
     font-size: 1.7em;
     font-weight: bold;
-    background-color: rgb(0, 158, 129);
+    background-color: $btn;
 }
 
 .crear-producto-btn:hover {
@@ -178,17 +208,41 @@
 
 *---------------------------------------------------------------------------------------------------------*/
 
-@media only screen and (max-width: 1150px) {
+@media only screen and (max-width: 1024px) {
 
     /* -----------------------------------------------
 * Aumento de padding top
 ------------------------------------------------*/
 
     .display-section {
-        max-width: 100%;
-        padding-top: 50em;
+        max-width: 100vw;
+       
+      
+    }
+    .box-cards{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(auto-fill, minmax(50%, 10vw));
+        width: 90vw; 
+        row-gap: 10em;
+        margin: 10em auto;
+        transform: translateY(600px);
+        
     }
 
+    .crear-producto-container.scrolled{
+        display: none;
+        
+    }
+    
+    .crear-producto-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
     /* --------------------------------------------------------
 * Reposicionamiento de los elementos en forma de columna
 --------------------------------------------------------*/
@@ -198,7 +252,7 @@
         flex-direction: column;
         gap: 1em;
         width: 100%;
-        max-height: auto;
+        height: auto;
         padding: 1em 0em;
     }
 
@@ -206,13 +260,17 @@
 * Reposicionamiento de los elementos en forma de columna
 --------------------------------------------------------*/
 
-    .list-items-nav-bar,
     .crear-producto {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
+  
 
-    /* -------------------------------------------------------------------------------------
+  
+
+/* -------------------------------------------------------------------------------------
 * Aumento de tamaño para los inputs, aumento del font size y aumento del border radius
 --------------------------------------------------------------------------------------*/
 
@@ -228,17 +286,8 @@
 
 
 
-    /* ------------------------------------------------------------------------------------------------
-* Aumento de tamaño en boton de actialzar precio, aumento del font size y aumento del border radius
---------------------------------------------------------------------------------------------------*/
 
-    .btn-nav {
-        font-size: 2.1em;
-        width: 14em;
-        border-radius: 50px;
-    }
-
-    /* --------------------------------------------------------
+/* --------------------------------------------------------
 * Aumento del font size y del border radius  del precio total
 --------------------------------------------------------*/
 
@@ -279,19 +328,42 @@
 * Aumento de la separacion entre los Productos y el top
 --------------------------------------------------------*/
 
-    .display-section {
-        max-width: 100%;
-        padding-top: 150%;
+
+
+    .nav.scrolled {
+        height: 50px;
     }
 
+    .crear-producto-container.scrolled {
+        display: none;
+        opacity: 0;
+      }
+
+    .display-section {
+        max-width: 100vw;
+       
+    }
+    .box-cards{
+        display: flex;
+        flex-direction: column;
+        gap: 10em;
+        margin: 500px auto;
+        transform: translateY(-100px);
+        
+    }
     /* --------------------------------------------------------
 * Disminucion del tamaño del font size
 --------------------------------------------------------*/
 
-    .btn-nav,
     .precio-total-nav-bar {
         font-size: 1.3em;
     }
+
+    .precio-total-nav-bar.scrolled{
+        transform: scale(1.7);
+    }
+
+   
 
     /* --------------------------------------------------------
 * Disminucion del tamaño del font size

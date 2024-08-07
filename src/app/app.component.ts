@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener  } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Producto } from './producto/class.producto';
-import { SistemaService } from './sistema/SistemaService';
+import { SistemaService } from './sistema/sistema.service';
 import { LocalStorageService } from './localStorage/local-storage.service';
 import { BDService } from './lista/bd.service';
 
@@ -26,13 +26,22 @@ import { BDService } from './lista/bd.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
- 
+  isScrolled: boolean = false;
+  @HostListener('window:scroll', ['$event'])
+    onWindowScroll()   
+ {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        this.isScrolled = scrollTop > 0;
+        
+    }
+
   constructor(public Sistema: SistemaService, public BD: BDService, private LocalStorage : LocalStorageService){
 
   }
 
   ngOnInit() {
   this.LocalStorage.getLocalStorage()
+  
   }
 
   agregarNuevoProducto(event: Event): void {

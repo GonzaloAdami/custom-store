@@ -9,8 +9,15 @@ html{
     overflow-x: hidden;
     position: relative;
     box-sizing: border-box;
-    background-color: rgb(224, 224, 231);
+    background-color: #051923;
 }
+
+$unidades: #042233;
+$card: #afc5d3;
+$btn: #006494;
+$texto: #0680b8;
+$precio: #1499ec;
+$background-title: #dee7e771;
 
 /*
 *-----------------------------------------------------------------------------------
@@ -52,11 +59,12 @@ html{
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 17em;
-    height: 22em;
-    background-color: rgb(237, 237, 238);
+    width: 20em;
+    height: 27em;
+    background-color: $card;
     border-radius: 20px;
     box-shadow: 0px 1px 10px 1px  rgba(0, 0, 0, 0.478);
+    margin: auto;
 }
 
 /* --------------------------
@@ -66,10 +74,11 @@ html{
 .btn-delete{
     position: absolute;
     @extend .flex-center;
-    min-width: 1.5em;
-    min-height: 1.5em;
-    max-width: 1.5em;
-    max-height: 1.5em;
+    
+    min-width: 1.8em;
+    min-height: 1.8em;
+    max-width: 1.8em;
+    max-height: 1.8em;
     background-color: rgba(213, 0, 0, 0.579);
     border: none;
     border-radius: 20px;
@@ -86,8 +95,8 @@ html{
 
 .card-header{
     @extend .confi-imagen;
-    width: 17em;
-    height: 17em;
+    min-width: 20em;
+    min-height: 18em;
     border-radius: 20px;
 }
 
@@ -107,9 +116,19 @@ html{
 /* --------------------
 * Precio del Producto
 ---------------------*/
+.info{
+    display: flex;
+    flex-direction: column;
+    background-color: $background-title;
+    border-radius: 10px;
+    padding: 0.5em 1em;
+    gap: 1em;
+    max-height: 5em;
+    min-height: 5em;
+}
 
 .price{
-    color: green;
+    color: $precio;
 }
 
 /* --------------------
@@ -117,7 +136,7 @@ html{
 ---------------------*/
 
 .medidas-del-producto{
-    color: rgb(39, 15, 255);
+    color: $texto;
 }
 
 /* 
@@ -134,8 +153,10 @@ html{
     float: left; 
     gap: 1em;
     height: 1.5em;
-    background-color: rgba(15, 139, 247, 0.256);
+    background-color: $unidades;
     border-radius: 15px;
+    box-shadow: 0px 2px 10px 5px rgba(0, 0, 0, 0.3);
+    width: 100%;
 }
 
 /* --------------------------------------------
@@ -148,7 +169,7 @@ html{
     height: 1.5em;
     border: none;
     border-radius: 15px;
-    background-color: rgb(18, 133, 209);
+    background-color: $btn;
     color: white;
     font-size: 1em;
     font-weight: bold;
@@ -173,7 +194,7 @@ html{
 -----------------------------------------------------------------------------*/
 
 .precio-total{
-    color: rgb(0, 83, 0);
+    color: $precio;
 }
 
 /* ---------------------
@@ -181,5 +202,5 @@ html{
 ----------------------*/
 
 .unidades{
-    color: rgb(0, 64, 255);
+    color: $texto;
 }
